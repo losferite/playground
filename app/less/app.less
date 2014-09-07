@@ -1,0 +1,45 @@
+/* app css stylesheet */
+html, body {
+	.square(100%);
+}
+
+body > .navbar {
+	margin-bottom: 0;
+}
+
+body > .container {
+	height: 100%;
+	padding-top: @navbar-height + 10;
+	background-color: rgba(0,0,0,0.01);
+}
+
+.fixed-grid {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	.grid-row {
+		white-space: nowrap;
+		& + .grid-row {
+			margin-top: -1px;
+		}
+		.grid-cell {
+			display: inline-block;
+			position: relative;
+			border: 1px solid #ccc;
+			.size(300px, 32px);
+			word-spacing: 0;
+			> div {
+				.square(100%);
+				padding: 3px;
+				cursor: pointer;
+				.transition(background-color 500ms linear);
+			}
+			& + .grid-cell {
+				margin-left: -1px;
+			}
+			&.colored {
+				z-index: 10;
+			}
+		}
+	}
+}
